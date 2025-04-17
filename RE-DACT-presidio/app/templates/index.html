@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RE-DACT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <h1>&lt; RE-DACT &gt;</h1>
+    <div class="container">
+        <div class="circles">
+            <div class="circle" id="menuToggle" title="Input Menu"></div>
+            <div class="circle" id="showRedacted" title="Redacted Output"></div>
+            <div class="circle" id="uploadTrigger" title="Upload .txt File"></div>
+            <input type="file" id="fileInput" accept=".txt">
+        </div>
+        <div class="menu active" id="menu">
+            <textarea id="inputText" placeholder="Enter text to redact..."></textarea>
+            <button id="redactButton">Redact</button>
+        </div>
+        <div class="redacted-output" id="redactedTextContainer">
+            <textarea id="redactedText" readonly></textarea>
+            <div class="slider-container">
+                <label for="redactionSlider">Redaction Level:</label>
+                <input type="range" id="redactionSlider" class="slider" min="0" max="100" step="1" value="0">
+            </div>
+            <button id="downloadButton" class="button-download">Download</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
